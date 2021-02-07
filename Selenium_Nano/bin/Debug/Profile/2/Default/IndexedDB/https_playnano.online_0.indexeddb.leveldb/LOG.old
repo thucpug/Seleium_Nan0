@@ -1,5 +1,0 @@
-2021/02/07-19:27:03.338 df8 Reusing MANIFEST D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Profile\2\Default\IndexedDB\https_playnano.online_0.indexeddb.leveldb/MANIFEST-000001
-2021/02/07-19:27:07.172 31c8 Level-0 table #5: started
-2021/02/07-19:27:07.175 31c8 Level-0 table #5: 340 bytes OK
-2021/02/07-19:27:07.178 31c8 Delete type=0 #3
-2021/02/07-19:27:07.178 31c8 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,3 +1,0 @@
-[9168:14964:0207/192433.823:INFO:CONSOLE(36)] "AUTH - 63", source: chrome-extension://ggmdpepbjljkkkdaklfihhngmmgmpggp/bg.js (36)
-[9168:14964:0207/192437.372:ERROR:device_event_log_impl.cc(211)] [19:24:37.372] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
-[9168:14964:0207/192457.867:ERROR:network_service_instance_impl.cc(286)] Network service crashed, restarting service.

@@ -1,8 +1,0 @@
-2021/02/07-20:42:18.895 3480 Reusing MANIFEST D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Profile\8\Default\IndexedDB\https_playnano.online_0.indexeddb.leveldb/MANIFEST-000001
-2021/02/07-20:42:18.896 3480 Recovering log #13
-2021/02/07-20:42:18.896 3480 Reusing old log D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Profile\8\Default\IndexedDB\https_playnano.online_0.indexeddb.leveldb/000013.log 
-2021/02/07-20:42:21.727 3480 Level-0 table #17: started
-2021/02/07-20:42:21.727 3480 Level-0 table #17: 0 bytes OK
-2021/02/07-20:42:21.729 3480 Delete type=0 #13
-2021/02/07-20:42:21.730 3480 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
-2021/02/07-20:42:21.730 3480 Manual compaction at level-1 from (begin) .. (end); will stop at (end)

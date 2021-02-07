@@ -1,3 +1,0 @@
-[16164:2184:0207/193007.238:ERROR:device_event_log_impl.cc(211)] [19:30:07.237] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
-[16164:2184:0207/193007.821:INFO:CONSOLE(36)] "AUTH - 61", source: chrome-extension://ggmdpepbjljkkkdaklfihhngmmgmpggp/bg.js (36)
-[16164:2184:0207/193507.839:WARNING:pref_notifier_impl.cc(40)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

@@ -22,3 +22,14 @@ D:\MMO\Selenium_Nano\Selenium_Nano\obj\Debug\Selenium_Nano.csproj.CoreCompileInp
 D:\MMO\Selenium_Nano\Selenium_Nano\obj\Debug\Selenium_Nano.csproj.CopyComplete
 D:\MMO\Selenium_Nano\Selenium_Nano\obj\Debug\Selenium_Nano.exe
 D:\MMO\Selenium_Nano\Selenium_Nano\obj\Debug\Selenium_Nano.pdb
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\2Captcha.dll
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Flurl.dll
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Flurl.Http.dll
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Newtonsoft.Json.dll
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Flurl.xml
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Flurl.Http.xml
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Newtonsoft.Json.xml
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Leaf.xNet.dll
+D:\MMO\Selenium_Nano\Selenium_Nano\bin\Debug\Leaf.xNet.xml

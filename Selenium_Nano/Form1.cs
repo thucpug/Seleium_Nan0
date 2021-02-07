@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
+using Selenium_Nano._2Captcha;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,132 +26,185 @@ namespace Selenium_Nano
         IWebDriver chromeDriver;
         string ProfileFolderPath = "Profile";
         string ExtentionFolderPath = "Extention";
+        public void SetValueForAttribute()
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)chromeDriver;
+            js.ExecuteScript(@"document.getElementsByName(""h-captcha-response"").setAttribute('style', '10')");
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (chromeDriver != null)
-            {
-                try
-                {
-                    chromeDriver.Close();
-                    chromeDriver.Quit();
-                }
-                catch (Exception ex)
-                {
-                }
-            }
-
-            ChromeOptions options = new ChromeOptions();
-
-            if (!Directory.Exists(ProfileFolderPath))
-            {
-                Directory.CreateDirectory(ProfileFolderPath);
-            }
-
-            if (Directory.Exists(ProfileFolderPath))
-            {
-                var foldesChild = Directory.GetDirectories(ProfileFolderPath).Count();
-                int nameCount = foldesChild++;
-
-                options.AddArguments("user-data-dir=" + ProfileFolderPath + "\\" + nameCount);
-            }
-
-            var temp = "zproxy.lum-superproxy.io:22225:lum-customer-hl_73c21fb6-zone-zone2-ip-178.171.0.70:740ux8jhaur6".Split(':');
-
-            var proxy = new
-            {
-                Ip = temp[0],
-                Username = temp[2],
-                Password = temp[3],
-                Port = temp[1]
-            };
-            if (!string.IsNullOrEmpty(proxy.Ip))
-            {
-                if (!string.IsNullOrEmpty(proxy.Username) && !string.IsNullOrEmpty(proxy.Password))
-                {
-                    options.AddExtension(ExtentionFolderPath + "\\Crx4Chrome.com.crx");
-                }
-                options.AddArgument(string.Format("--proxy-server={0}", proxy.Ip + $":{proxy.Port}"));
-            }
-
-
-            List<String> ext = new List<string>();
-            byte[] byteExt = File.ReadAllBytes(ExtentionFolderPath + "\\WebRTC.crx");
-            ext.Add(Convert.ToBase64String(byteExt));
-            options.AddExtension(ExtentionFolderPath + "\\WebRTC.crx");
-
-            chromeDriver = new ChromeDriver(options);
-            if (!string.IsNullOrEmpty(proxy.Ip))
-            {
-                if (!string.IsNullOrEmpty(proxy.Username) && !string.IsNullOrEmpty(proxy.Password))
-                {
-                    chromeDriver.Url = "chrome-extension://ggmdpepbjljkkkdaklfihhngmmgmpggp/options.html";
-                    chromeDriver.Navigate();
-
-                    chromeDriver.FindElement(By.Id("login")).SendKeys(proxy.Username);
-                    chromeDriver.FindElement(By.Id("password")).SendKeys(proxy.Password);
-                    chromeDriver.FindElement(By.Id("retry")).Clear();
-                    chromeDriver.FindElement(By.Id("retry")).SendKeys("10");
-
-                    chromeDriver.FindElement(By.Id("save")).Click();
-                }
-            }
-
-            // chromeDriver.Navigate().GoToUrl("https://whoer.net/");
-
-            // chromeDriver.Navigate().GoToUrl("https://whoer.net/");
-            //chromeDriver.Url = "https://whoer.net/";
-            // chromeDriver.Navigate();
-            chromeDriver.Url = "https://playnano.online/login/";
-            chromeDriver.Navigate();
-
-            var account = new { mail = "ygg15179@eoopy.com", pass = "trinh123" };
-            var inputEmail = chromeDriver.FindElement(By.Id("user_email"));
-            var inputPass = chromeDriver.FindElement(By.Id("user_password"));
-            inputEmail.SendKeys(account.mail);
-            inputPass.SendKeys(account.pass);
-            chromeDriver.FindElement(By.XPath(@"//*[@id=""new_user""]/div[3]/div/input")).Click();
-
-            IJavaScriptExecutor jse = (IJavaScriptExecutor)chromeDriver;
             try
             {
-                // jse.ExecuteScript("scroll(250, 0)"); // if the element is on top.
-                jse.ExecuteScript("scroll(0, 250)"); // if the element is on bottom.
-                chromeDriver.FindElement(By.XPath(@"//*[@id=""features""]/div/div/div[1]/div/div[1]/a/div"));
-                var element = chromeDriver.FindElement(By.XPath(@"//*[@id=""features""]/div/div/div[1]/div/div[1]/a/div"));
-                Actions actions = new Actions(chromeDriver);
-                actions.MoveToElement(element).Click().Perform();
-                Thread.Sleep(1000);
-                jse.ExecuteScript("scroll(0, 250)"); // if the element is on bottom.
-                chromeDriver.FindElement(By.Id(@"watch-link")).Click();
-                Thread.Sleep(1000);
-                jse.ExecuteScript("scroll(0, 1000)");
-                chromeDriver.FindElement(By.XPath(@"/html/body/main/section/div/div[2]/div[1]/div[3]/div/form")).Submit();
-            }
-            catch (Exception)
-            {
+                chromeDriver = new ChromeDriver();
+                chromeDriver.Navigate().GoToUrl("https://playnano.online/watch-and-learn/nano/captcha");
+                //  var iframeCapt = chromeDriver.FindElement(By.XPath("/html/body/main/section/div/div[2]/div[1]/form/div[1]/div/div/iframe"));
+                // chromeDriver.SwitchTo().Frame(iframeCapt);
+                // chromeDriver.FindElement(By.XPath("/html/body/main/section/div/div[2]/div[1]/form/div[1]/div/div/textarea[1]")).SendKeys("thuc1");
+                //var cxxc = chromeDriver.FindElement(By.Name("h-captcha-response")).GetAttribute("style");
+               // SetValueForAttribute();
+                // var thuc = iframeCapt.GetAttribute("data-hcaptcha-response");
+                IJavaScriptExecutor jse = (IJavaScriptExecutor)chromeDriver;
 
-            }
-        NextMax:
-            bool isNext = NextMax(5);
-            clickFrameCheckBox();
-        CheckElement:
-            try
-            {
-                clickEarnAndContinueWatch();
-                var a = chromeDriver.FindElement(By.CssSelector(@"#next-video-form > button"));
-                goto NextMax;
+                jse.ExecuteScript(@"let submitToken = (token) => {
+document.querySelector('[name=g-recaptcha-response]').innerText = token
+document.querySelector('[name=h-captcha-response]').innerText = token
+document.querySelector('.challenge-form').submit()
+}
+");
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("no such element"))
-                {
-                    Thread.Sleep(2000);
-                    goto CheckElement;
-                }
-            }
-            //no such element
-        }
 
+
+            }
+
+            // if (chromeDriver != null)
+            // {
+            //     try
+            //     {
+            //         chromeDriver.Close();
+            //         chromeDriver.Quit();
+            //     }
+            //     catch (Exception ex)
+            //     {
+            //     }
+            // }
+
+            // ChromeOptions options = new ChromeOptions();
+
+            // if (!Directory.Exists(ProfileFolderPath))
+            // {
+            //     Directory.CreateDirectory(ProfileFolderPath);
+            // }
+
+            // if (Directory.Exists(ProfileFolderPath))
+            // {
+            //     var foldesChild = Directory.GetDirectories(ProfileFolderPath).Count();
+            //     int nameCount = foldesChild++;
+
+            //     options.AddArguments("user-data-dir=" + ProfileFolderPath + "\\" + nameCount);
+            // }
+
+            // var temp = "zproxy.lum-superproxy.io:22225:lum-customer-hl_73c21fb6-zone-zone2-ip-178.171.0.70:740ux8jhaur6".Split(':');
+
+            // var proxy = new
+            // {
+            //     Ip = temp[0],
+            //     Username = temp[2],
+            //     Password = temp[3],
+            //     Port = temp[1]
+            // };
+            // if (!string.IsNullOrEmpty(proxy.Ip))
+            // {
+            //     if (!string.IsNullOrEmpty(proxy.Username) && !string.IsNullOrEmpty(proxy.Password))
+            //     {
+            //         options.AddExtension(ExtentionFolderPath + "\\Crx4Chrome.com.crx");
+            //     }
+            //     options.AddArgument(string.Format("--proxy-server={0}", proxy.Ip + $":{proxy.Port}"));
+            // }
+
+
+            // List<String> ext = new List<string>();
+            // byte[] byteExt = File.ReadAllBytes(ExtentionFolderPath + "\\WebRTC.crx");
+            // ext.Add(Convert.ToBase64String(byteExt));
+            // options.AddExtension(ExtentionFolderPath + "\\WebRTC.crx");
+
+            // chromeDriver = new ChromeDriver(options);
+            // if (!string.IsNullOrEmpty(proxy.Ip))
+            // {
+            //     if (!string.IsNullOrEmpty(proxy.Username) && !string.IsNullOrEmpty(proxy.Password))
+            //     {
+            //         chromeDriver.Url = "chrome-extension://ggmdpepbjljkkkdaklfihhngmmgmpggp/options.html";
+            //         chromeDriver.Navigate();
+
+            //         chromeDriver.FindElement(By.Id("login")).SendKeys(proxy.Username);
+            //         chromeDriver.FindElement(By.Id("password")).SendKeys(proxy.Password);
+            //         chromeDriver.FindElement(By.Id("retry")).Clear();
+            //         chromeDriver.FindElement(By.Id("retry")).SendKeys("10");
+
+            //         chromeDriver.FindElement(By.Id("save")).Click();
+            //     }
+            // }
+
+
+            // #region SolverCapt
+            // chromeDriver.Navigate().GoToUrl("https://playnano.online/watch-and-learn/nano/captcha");
+            // // TwoCaptchaThuc twoCaptchaThuc = new TwoCaptchaThuc(TwoCaptchaThuc.apiKey2Captcha, "https://playnano.online/watch-and-learn/nano/captcha");
+
+            // var IdKey = chromeDriver.FindElement(By.XPath(@"/html/body/main/section/div/div[2]/div[1]/form/div[1]/div/div")).GetAttribute("data-sitekey");
+
+            // // var dataCaptchaSolved = twoCaptchaThuc.SolverCaptchaAsync(IdKey, "https://playnano.online/watch-and-learn/nano/captcha");
+            // // dataCaptchaSolved.Wait();
+            // // var result = dataCaptchaSolved.Result;
+            // string id = ByPassHCaptchaByAPIPHP.GetSiteKeyResult(IdKey, "https://playnano.online/watch-and-learn/nano/captcha");
+            // var iframeCapt = chromeDriver.FindElement(By.XPath("/html/body/main/section/div/div[2]/div[1]/form/div[1]/div/div/iframe"));
+            // chromeDriver.SwitchTo().Frame(iframeCapt);
+            //var thuc = iframeCapt.GetAttribute("data-hcaptcha-response");
+            // Thread.Sleep(18000);
+            // getlai:
+            // string dataResult = ByPassHCaptchaByAPIPHP.GetResult(id);
+            // if(string.IsNullOrEmpty(dataResult))
+            // {
+            //     Thread.Sleep(2000);
+            //     goto getlai;
+            // } 
+
+
+            // #endregion
+            // #region xxx
+            // //    chromeDriver.Url = "https://playnano.online/login/";
+            // //    chromeDriver.Navigate();
+
+            // //    var account = new { mail = "ygg15179@eoopy.com", pass = "trinh123" };
+            // //    var inputEmail = chromeDriver.FindElement(By.Id("user_email"));
+            // //    var inputPass = chromeDriver.FindElement(By.Id("user_password"));
+            // //    inputEmail.SendKeys(account.mail);
+            // //    inputPass.SendKeys(account.pass);
+            // //    chromeDriver.FindElement(By.XPath(@"//*[@id=""new_user""]/div[3]/div/input")).Click();
+
+            // //    IJavaScriptExecutor jse = (IJavaScriptExecutor)chromeDriver;
+            // //    try
+            // //    {
+            // //        // jse.ExecuteScript("scroll(250, 0)"); // if the element is on top.
+            // //        jse.ExecuteScript("scroll(0, 250)"); // if the element is on bottom.
+            // //        chromeDriver.FindElement(By.XPath(@"//*[@id=""features""]/div/div/div[1]/div/div[1]/a/div"));
+            // //        var element = chromeDriver.FindElement(By.XPath(@"//*[@id=""features""]/div/div/div[1]/div/div[1]/a/div"));
+            // //        Actions actions = new Actions(chromeDriver);
+            // //        actions.MoveToElement(element).Click().Perform();
+            // //        Thread.Sleep(1000);
+            // //        jse.ExecuteScript("scroll(0, 250)"); // if the element is on bottom.
+            // //        chromeDriver.FindElement(By.Id(@"watch-link")).Click();
+            // //        Thread.Sleep(1000);
+            // //        jse.ExecuteScript("scroll(0, 1000)");
+            // //        chromeDriver.FindElement(By.XPath(@"/html/body/main/section/div/div[2]/div[1]/div[3]/div/form")).Submit();
+            // //    }
+            // //    catch (Exception)
+            // //    {
+
+            // //    }
+            // //NextMax:
+            // //    bool isNext = NextMax(5);
+            // //    clickFrameCheckBox();
+            // //CheckElement:
+            // //    try
+            // //    {
+            // //        clickEarnAndContinueWatch();
+            // //        var a = chromeDriver.FindElement(By.CssSelector(@"#next-video-form > button"));
+            // //        goto NextMax;
+            // //    }
+            // //    catch (Exception ex)
+            // //    {
+            // //        if (ex.Message.Contains("no such element"))
+            // //        {
+            // //            Thread.Sleep(2000);
+            // //            goto CheckElement;
+            // //        }
+            // //    }
+            // //no such element
+            // #endregion
+
+        }
+      
         private void button1_Click(object sender, EventArgs e)
         {
             var a = chromeDriver.PageSource;
