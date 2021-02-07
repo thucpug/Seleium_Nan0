@@ -1,0 +1,12 @@
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\bin\Debug\SeleniumFF_Nano.exe.config
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\obj\Debug\SeleniumFF_Nano.Form1.resources
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\obj\Debug\SeleniumFF_Nano.Properties.Resources.resources
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\obj\Debug\SeleniumFF_Nano.csproj.GenerateResource.Cache
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\bin\Debug\SeleniumFF_Nano.exe
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\bin\Debug\SeleniumFF_Nano.pdb
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\bin\Debug\WebDriver.dll
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\bin\Debug\WebDriver.xml
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\obj\Debug\SeleniumFF_Nano.exe
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\obj\Debug\SeleniumFF_Nano.pdb
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\obj\Debug\SeleniumFF_Nano.csprojResolveAssemblyReference.cache
+E:\_MMO\NanoCheat\Selenium_Nano\SeleniumFF_Nano\bin\Debug\SeleniumExtras.WaitHelpers.dll
