@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium_Nano", "Selenium_N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumFF_Nano", "SeleniumFF_Nano\SeleniumFF_Nano.csproj", "{F8865C77-F781-4206-BE44-5034860A472D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultilSeleniumNano", "MultilSeleniumNano\MultilSeleniumNano.csproj", "{58F4EE72-C7DD-43A0-B0E1-40A13815D477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask", "TestTask\TestTask.csproj", "{062B50D8-08B6-4D7F-BE80-58F46795F387}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{F8865C77-F781-4206-BE44-5034860A472D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8865C77-F781-4206-BE44-5034860A472D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8865C77-F781-4206-BE44-5034860A472D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F4EE72-C7DD-43A0-B0E1-40A13815D477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F4EE72-C7DD-43A0-B0E1-40A13815D477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F4EE72-C7DD-43A0-B0E1-40A13815D477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F4EE72-C7DD-43A0-B0E1-40A13815D477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{062B50D8-08B6-4D7F-BE80-58F46795F387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{062B50D8-08B6-4D7F-BE80-58F46795F387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{062B50D8-08B6-4D7F-BE80-58F46795F387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{062B50D8-08B6-4D7F-BE80-58F46795F387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -200,8 +200,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="2Captcha\ByPassHCaptchaByAPIPHP.cs" />
-    <Compile Include="2Captcha\ResultCapt.cs" />
-    <Compile Include="2Captcha\TwoCaptchaThuc.cs" />
+    <Compile Include="2Captcha\HCaptcha2Captcha.cs" />
+    <Compile Include="2Captcha\Hcaptcha_2CaptchaKteam.cs" />
+    <Compile Include="2Captcha\Recaptcha2captcha.cs" />
+    <Compile Include="2Captcha\Recaptcha_2CaptchaKteam.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
